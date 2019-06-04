@@ -1,5 +1,4 @@
-//Menu Button
-
+// Menu Button
 .menu-btn {
   position: absolute;
   z-index: 3;
@@ -12,25 +11,26 @@
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
-    background: white;
+    background: set-text-color($primary-color);
     @include easeOut;
   }
 
-  // Rotate Into X with menu lines
+  // Rotate Into X With Menu Lines
   &.close {
     transform: rotate(180deg);
 
     .btn-line {
-      // line 1 rotate
+      // Line 1 - Rotate
       &:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
       }
 
-      //line 2 hides
+      // Line 2 - Hide
       &:nth-child(2) {
         opacity: 0;
       }
-      //line 3 also rotates
+
+      // Line 3 - Rotate
       &:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
       }
@@ -38,7 +38,7 @@
   }
 }
 
-//menu overlay
+// Menu Overlay
 .menu {
   position: fixed;
   top: 0;
@@ -46,7 +46,7 @@
   opacity: 0.9;
   visibility: hidden;
 
-  .show {
+  &.show {
     visibility: visible;
   }
 
@@ -62,28 +62,28 @@
     overflow: hidden;
   }
 
-  // slide down
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken($primary-color, 0);
+    background: darken($primary-color, 5);
     list-style: none;
     transform: translate3d(0, -100%, 0);
     @include easeOut;
-    //slide up
+
     &.show {
+      // Slide in from top
       transform: translate3d(0, 0, 0);
     }
   }
 
-  //branding
+  // Branding Side
   &-branding {
     background: $primary-color;
     transform: translate3d(0, 100%, 0);
     @include easeOut;
 
     &.show {
-      //slide in from bottom
+      // Slide in from bottom
       transform: translate3d(0, 0, 0);
     }
 
@@ -101,7 +101,7 @@
     @include easeOut;
 
     &.show {
-      //slide in from right
+      // Slide in from right
       transform: translate3d(0, 0, 0);
     }
 
@@ -115,8 +115,9 @@
     position: relative;
     font-size: 30px;
     text-transform: uppercase;
-    padding: 1rem, 0;
+    padding: 1rem 0;
     font-weight: 300;
+    color: set-text-color($primary-color);
     text-decoration: none;
     @include easeOut;
 
@@ -126,7 +127,7 @@
   }
 }
 
-//delay each nav item slide
+// Delay each nav item slide by 0.1s
 @for $x from 1 through 4 {
   .nav-item:nth-child(#{$x}) {
     transition-delay: $x * 0.1s;
